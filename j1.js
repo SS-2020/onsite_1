@@ -15,6 +15,12 @@ function Bold(){
 		document.querySelector('#bold').style.fontWeight="normal";
 	}
 }
+function undo(){
+	document.execCommand("undo");
+}
+function redo(){
+	document.execCommand("redo");
+}
 function Italic(){
 	document.execCommand("italic");
 	if(!ital)
