@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="sty.css" rel="stylesheet">
+	<link href="s1.css" rel="stylesheet">
 </head>
 <body>	
 	<button id="bold" onclick="Bold()">B</button>
 	<button id="ital" onclick="Italic()">I</button>
-	<button id="undo" onclick="undo()">undo</button>
+	<label>Align:</label>
+	<button onclick="formatDoc('justifyleft');">Left</button>
+	<button onclick="formatDoc('justifycenter');">Center</button>
+	<button onclick="formatDoc('justifyright');">Right</button>
 	<label>font size:</label>
 	<select onchange="fontfunction(this);" >
-		<option>xx-small</option>
-		<option>x-small</option>
-		<option>small</option>
-		<option>medium</option>
-		<option>large</option>
-		<option>x-large</option>
-		<option>xx-large</option>
-		<option>100%</option>
-		<option>250%</option>
-		<option>2cm</option>
-		<option>100px</option>
+		<option value="1">Very small</option>
+		<option value="2">A bit small</option>
+		<option value="3">Normal</option>
+		<option value="4">Medium-large</option>
+		<option value="5">Big</option>
+		<option value="6">Very big</option>
+		<option value="7">Maximum</option>
 	</select>
-	<label>font style:</label>
+	<label>font type:</label>
 	<select onchange="fonttype(this);" >
 		<option>Times New Roman</option>
 		<option>Courier New</option>
@@ -29,11 +28,8 @@
 		<option>Lucida Sans Unicode</option>
 	</select>
 	<div id="type">
-		<label class="textspace">
-			<label id='log'></label>
-		</label>
-		<input type="text" id="ibox" >
+		<p id="ibox" contenteditable="true"></p>
 	</div>
-	<script src="edit.js"></script>
+	<script src="j1.js"></script>
 </body>
 </html>
