@@ -49,6 +49,30 @@ function undo()
 	typed.removeChild(typed.lastChild);
 	log=typed.lastChild;
 }
+function fontfunction(selectTag) {
+	var i = document.createElement("LABEL");
+	i.id="log";
+	var listValue = selectTag.options[selectTag.selectedIndex].text;
+	i.style.fontSize = listValue;
+	if(ital)
+		i.style.fontStyle="italic";
+	if(bold)
+		i.style.fontWeight="bold";
+	typed.appendChild(i);
+	log=typed.lastChild;
+}
+function fonttype(selectTag) {
+	var i = document.createElement("LABEL");
+	i.id="log";
+	var listValue = selectTag.options[selectTag.selectedIndex].text;
+	i.style.fontFamily = listValue;
+	if(ital)
+		i.style.fontStyle="italic";
+	if(bold)
+		i.style.fontWeight="bold";
+	typed.appendChild(i);
+	log=typed.lastChild;
+}
 input.oninput = handleInput;
 input.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
