@@ -45,7 +45,20 @@ function Italic(){
 	log=typed.lastChild;
 }
 input.oninput = handleInput;
-
+input.addEventListener("keyup", function(event) {
+	if (event.keyCode === 13) {
+		var i = document.createElement("BR");
+		typed.appendChild(i);
+		var i = document.createElement("LABEL");
+		i.id="log";
+		if(bold)
+			i.style.fontWeight="bold";
+		if(ital)
+			i.style.fontStyle="italic";
+		typed.appendChild(i);
+		log=typed.lastChild;
+	}
+});
 function handleInput(e) {	
 		log.textContent += e.target.value;
 		e.target.value='';
