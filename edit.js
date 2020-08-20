@@ -1,99 +1,41 @@
 let bold=0;
 let ital=0;
-let input = document.querySelector('#ibox');
-let typed= document.querySelector(".textspace");
-let log = typed.lastChild;
-var listfont="xx-small";
-var listtype="Times New Roman";
+
+
 function Bold(){
-	var i = document.createElement("LABEL");
-	i.id="log";
+	document.execCommand("bold");
 	if(!bold)
 	{	
 		bold=1;
 		document.querySelector('#bold').style.fontWeight="bold";
-		i.style.fontWeight="bold";
 	}
 	else
 	{
 		bold=0;
 		document.querySelector('#bold').style.fontWeight="normal";
-		i.style.fontWeight="normal";
 	}
-	if(ital)
-		i.style.fontStyle="italic";
-	i.style.fontSize = listfont;
-	i.style.fontFamily = listtype;
-	typed.appendChild(i);
-	log=typed.lastChild;
-}
-function undo()
-{
-	typed.removeChild(typed.lastChild);
-	log=typed.lastChild;
-}
-function fontfunction(selectTag) {
-	var i = document.createElement("LABEL");
-	i.id="log";
-	listfont = selectTag.options[selectTag.selectedIndex].text;
-	i.style.fontSize = listfont;
-	if(ital)
-		i.style.fontStyle="italic";
-	if(bold)
-		i.style.fontWeight="bold";
-	typed.appendChild(i);
-	log=typed.lastChild;
-}
-function fonttype(selectTag) {
-	var i = document.createElement("LABEL");
-	i.id="log";
-	listtype = selectTag.options[selectTag.selectedIndex].text;
-	i.style.fontFamily = listtype;
-	if(ital)
-		i.style.fontStyle="italic";
-	if(bold)
-		i.style.fontWeight="bold";
-	typed.appendChild(i);
-	log=typed.lastChild;
 }
 function Italic(){
-	var i = document.createElement("LABEL");
-	i.id="log";
+	document.execCommand("italic");
 	if(!ital)
 	{
 		document.querySelector('#ital').style.fontWeight="bold";
 		ital=1;
-		i.style.fontStyle="italic";
 	}
 	else
 	{
 		document.querySelector('#ital').style.fontWeight="normal";
 		ital=0;
-		i.style.fontStyle="normal";
 	}
-	if(bold)
-		i.style.fontWeight="bold";
-	i.style.fontSize = listfont;
-	i.style.fontFamily = listtype;
-	typed.appendChild(i);
-	log=typed.lastChild;
 }
-input.oninput = handleInput;
-input.addEventListener("keyup", function(event) {
-	if (event.keyCode === 13) {
-		var i = document.createElement("BR");
-		typed.appendChild(i);
-		var i = document.createElement("LABEL");
-		i.id="log";
-		if(bold)
-			i.style.fontWeight="bold";
-		if(ital)
-			i.style.fontStyle="italic";
-		typed.appendChild(i);
-		log=typed.lastChild;
-	}
-});
-function handleInput(e) {	
-		log.textContent += e.target.value;
-		e.target.value='';
+function fonttype(selectTag) {
+	listtype = selectTag.options[selectTag.selectedIndex].text;
+	document.execCommand('fontname', false, listtype);
+}
+function fontfunction(selectTag) {
+	listfont = selectTag.options[selectTag.selectedIndex].value;
+	document.execCommand('fontsize', false, listfont);
+}
+function formatDoc(sCmd, sValue) {
+  document.execCommand(sCmd, false, sValue); 
 }
