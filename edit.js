@@ -47,6 +47,7 @@ function Italic(){
 function undo()
 {
 	typed.removeChild(typed.lastChild);
+	log=typed.lastChild;
 }
 input.oninput = handleInput;
 input.addEventListener("keyup", function(event) {
