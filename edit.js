@@ -3,7 +3,8 @@ let ital=0;
 let input = document.querySelector('#ibox');
 let typed= document.querySelector(".textspace");
 let log = typed.lastChild;
-
+var listfont="xx-small";
+var listtype="Times New Roman";
 function Bold(){
 	var i = document.createElement("LABEL");
 	i.id="log";
@@ -21,6 +22,37 @@ function Bold(){
 	}
 	if(ital)
 		i.style.fontStyle="italic";
+	i.style.fontSize = listfont;
+	i.style.fontFamily = listtype;
+	typed.appendChild(i);
+	log=typed.lastChild;
+}
+function undo()
+{
+	typed.removeChild(typed.lastChild);
+	log=typed.lastChild;
+}
+function fontfunction(selectTag) {
+	var i = document.createElement("LABEL");
+	i.id="log";
+	listfont = selectTag.options[selectTag.selectedIndex].text;
+	i.style.fontSize = listfont;
+	if(ital)
+		i.style.fontStyle="italic";
+	if(bold)
+		i.style.fontWeight="bold";
+	typed.appendChild(i);
+	log=typed.lastChild;
+}
+function fonttype(selectTag) {
+	var i = document.createElement("LABEL");
+	i.id="log";
+	listtype = selectTag.options[selectTag.selectedIndex].text;
+	i.style.fontFamily = listtype;
+	if(ital)
+		i.style.fontStyle="italic";
+	if(bold)
+		i.style.fontWeight="bold";
 	typed.appendChild(i);
 	log=typed.lastChild;
 }
@@ -41,35 +73,8 @@ function Italic(){
 	}
 	if(bold)
 		i.style.fontWeight="bold";
-	typed.appendChild(i);
-	log=typed.lastChild;
-}
-function undo()
-{
-	typed.removeChild(typed.lastChild);
-	log=typed.lastChild;
-}
-function fontfunction(selectTag) {
-	var i = document.createElement("LABEL");
-	i.id="log";
-	var listValue = selectTag.options[selectTag.selectedIndex].text;
-	i.style.fontSize = listValue;
-	if(ital)
-		i.style.fontStyle="italic";
-	if(bold)
-		i.style.fontWeight="bold";
-	typed.appendChild(i);
-	log=typed.lastChild;
-}
-function fonttype(selectTag) {
-	var i = document.createElement("LABEL");
-	i.id="log";
-	var listValue = selectTag.options[selectTag.selectedIndex].text;
-	i.style.fontFamily = listValue;
-	if(ital)
-		i.style.fontStyle="italic";
-	if(bold)
-		i.style.fontWeight="bold";
+	i.style.fontSize = listfont;
+	i.style.fontFamily = listtype;
 	typed.appendChild(i);
 	log=typed.lastChild;
 }
