@@ -3,11 +3,11 @@ body {
     margin: 0;
 }
 button{
-	padding:2px;
 	background-color: blue;
 	color:white;
-	margin:1 px;
-	border: 2px solid red;
+	margin:0 px;
+	padding:10px;
+	border: 1px solid red;
 }
 #ibox{
 	border: 2px solid white;
