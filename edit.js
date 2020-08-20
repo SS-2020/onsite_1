@@ -44,6 +44,10 @@ function Italic(){
 	typed.appendChild(i);
 	log=typed.lastChild;
 }
+function undo()
+{
+	typed.removeChild(typed.lastChild);
+}
 input.oninput = handleInput;
 input.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
